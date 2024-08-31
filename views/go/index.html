@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pokédex</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+        <link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+    </head>
+
+    <body>
+        <div class="nav-top">
+            <div>
+                <a class="nt-item logo">My Pokémon Journey</a> |
+                <a href="/" class="nt-item">Home</a>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="pokedex-count">Found {{.Count}} Pokémon</div>
+            {{range $index, $element := .Results}}
+                <div class="pokedex-item">
+                    {{.Name}}
+                    <span><a href="/pokemon?url={{.Url}}">View Details</a></span>
+                </div>
+            {{end}}
+        </div>
+    </body>
+</html>

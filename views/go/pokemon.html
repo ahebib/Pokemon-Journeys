@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pokédex Entry</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+        <link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+    </head>
+
+    <body>
+        <div class="nav-top">
+            <div>
+                <a class="nt-item logo">My Pokémon Journey</a> |
+                <a href="/" class="nt-item">Home</a>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="stat-card">
+                <div class="pokemon-sprite"><img src="{{.Sprites.FrontDefault}}" alt="Pokemon {{.Name}}" /></div>
+                <div class="pokemon-data">
+                    <div class="label">Name</div>
+                    <div class="value"><span class="capitalize">{{.Name}}</span></div>
+                    
+                    <div class="label">Weight</div>
+                    <div class="value">{{.Weight}} lbs</div>
+
+                    <div class="label">Height</div>
+                    <div class="value">{{.Height}} dm</div>
+
+                    <div class="label">Abilities</div>
+                    <ul>
+                        {{range $index, $item := .Abilities}}
+                            <li class="value capitalize">{{$item.Ability.Name}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
